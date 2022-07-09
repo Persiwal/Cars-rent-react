@@ -1,0 +1,25 @@
+@import "../../../global_styles/_mixins";
+@import "../../../global_styles/variables";
+
+.input {
+  height: 45px;
+  font-size: 18px;
+  padding: 10px;
+
+  @include breakpointUP(md) {
+    border: 1px solid $black;
+    border-radius: 5px;
+  }
+
+  &.wide {
+    width: 100%;
+  }
+
+  &.short {
+    width: 48%;
+
+    @include breakpointUP(md) {
+      width: 120px;
+    }
+  }
+}
