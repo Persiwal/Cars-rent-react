@@ -1,0 +1,79 @@
+@import "../../global_styles/_mixins";
+@import "../../global_styles/variables";
+
+.wrapper {
+  border-top: 1px solid $black;
+  border-bottom: 1px solid $black;
+  font-size: 18px;
+
+  @include breakpointUP(md) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    background-color: $lightGrey;
+    border-top: none;
+    border-bottom: none;
+    padding: 16px 0px;
+  }
+
+  .basicSearch {
+    display: flex;
+    align-items: center;
+
+    @include breakpointUP(md) {
+      gap: 20px;
+    }
+
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 15%;
+
+      @include breakpointUP(md) {
+        display: none;
+      }
+
+      span {
+        display: block;
+        height: 0.125rem;
+        width: 20px;
+        background-color: $darkBlue;
+        margin-bottom: 0.3125rem;
+      }
+
+      :first-child {
+        width: 25px;
+      }
+
+      :nth-child(2) {
+        width: 15px;
+        transform: translateX(-4px);
+      }
+
+      :last-child {
+        width: 10px;
+        margin-bottom: 0;
+        transform: translateX(-6px);
+      }
+    }
+  }
+
+  button {
+    display: none;
+
+    @include breakpointUP(md) {
+      display: block;
+      height: 45px;
+      background-color: $blue;
+      border: 1px solid $black;
+      border-radius: 7px;
+      color: $white;
+      font-weight: $medium;
+      padding: 10px;
+    }
+  }
+}
