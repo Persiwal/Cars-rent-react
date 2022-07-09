@@ -1,0 +1,41 @@
+@import "../../global_styles/_mixins";
+@import "../../global_styles/variables.scss";
+
+.carsList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $white;
+  margin: 0;
+  padding: 20px;
+  list-style: none;
+
+  @include breakpointUP(md) {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-color: $white;
+  margin-top: 0;
+  padding: 0 0 30px 0;
+  list-style: none;
+
+  .pageNum {
+    font-size: 18px;
+    padding: 5px 5px 5px 5px;
+    cursor: pointer;
+  }
+
+  .active {
+    border-radius: 40%;
+    background-color: $lightGrey;
+  }
+}
