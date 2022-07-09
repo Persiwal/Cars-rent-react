@@ -1,0 +1,48 @@
+@import "../../../../global_styles/_mixins";
+@import "../../../../global_styles/variables";
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  &Desktop {
+    @include breakpointUP(md) {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 25px;
+      padding: 8px 32px;
+    }
+
+    @include breakpointDOWN(md) {
+      display: none;
+    }
+  }
+
+  .filter {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .label {
+    font-size: 18px;
+    font-weight: $light;
+    margin-bottom: 4px;
+  }
+
+  .legend {
+    font-size: 18px;
+    font-weight: $light;
+    margin-bottom: 4px;
+  }
+}
+
+fieldset {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  border: none;
+  padding: 0;
+}
