@@ -1,0 +1,114 @@
+@import "../../../global_styles/_mixins";
+@import "../../../global_styles/variables";
+
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid $black;
+  border-radius: 5px;
+  z-index: 1;
+  cursor: pointer;
+
+  @include breakpointUP(md) {
+    width: 300px;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 18px;
+    right: 16px;
+    width: 16px;
+    height: 16px;
+    background: url("../../../assets/icons/down-arrow-icon.svg");
+    background-repeat: no-repeat;
+    transition: all 0.5s ease-in-out;
+  }
+
+  &.active {
+    &::after {
+      transform: rotateX(180deg);
+    }
+  }
+
+  &.disabled {
+    opacity: 60%;
+    pointer-events: none;
+  }
+
+  .header {
+    background-color: $white;
+    font-weight: $light;
+    margin: 0;
+    padding: 10px;
+
+    @include breakpointUP(md) {
+      border-radius: 5px;
+    }
+  }
+
+  .optionsList {
+    visibility: hidden;
+    max-height: 0px;
+    background-color: $white;
+    transition: all 0.5s ease-in-out;
+
+    @include breakpointUP(md) {
+      position: absolute;
+      top: 45px;
+      width: 100%;
+    }
+
+    .option {
+      padding: 5px 0px 10px 15px;
+
+      &:hover {
+        font-weight: $medium;
+      }
+
+      .radio {
+        display: none;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    &.active {
+      animation: open-dropdown 0.5s forwards;
+      transition: all 0.5s ease-in-out;
+    }
+    &.closed {
+      animation: close-dropdown 0.5s forwards;
+    }
+  }
+}
+
+@keyframes open-dropdown {
+  1% {
+    visibility: hidden;
+    max-height: 0px;
+    overflow-y: scroll;
+  }
+
+  100% {
+    visibility: visible;
+    max-height: 140px;
+    overflow-y: scroll;
+  }
+}
+
+@keyframes close-dropdown {
+  1% {
+    visibility: visible;
+    max-height: 140px;
+    overflow-y: scroll;
+  }
+  100% {
+    visibility: hidden;
+    max-height: 0px;
+    overflow-y: hidden;
+  }
+}
