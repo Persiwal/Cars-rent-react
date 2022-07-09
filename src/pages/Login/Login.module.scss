@@ -1,0 +1,33 @@
+@import "../../global_styles/variables.scss";
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+
+  .title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    .logo {
+      margin: auto;
+    }
+
+    p {
+      font-size: 30px;
+      font-weight: 500;
+      margin: 0;
+      padding: 12px;
+
+      span {
+        font-size: 35px;
+        font-weight: 800;
+        color: $darkBlue;
+      }
+    }
+  }
+}
