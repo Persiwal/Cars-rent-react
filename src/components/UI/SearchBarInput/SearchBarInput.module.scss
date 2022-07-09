@@ -1,0 +1,32 @@
+@import "../../../global_styles/_mixins";
+@import "../../../global_styles/variables";
+
+.wrapper {
+  position: relative;
+  width: 90%;
+
+  @include breakpointUP(md) {
+    width: 450px;
+  }
+
+  .input {
+    height: 50px;
+    width: 100%;
+    border: none;
+    border-right: 1px solid $black;
+    font-size: 21px;
+    padding: 10px;
+
+    @include breakpointUP(md) {
+      border: 1px solid $black;
+      border-radius: 8px;
+    }
+  }
+
+  .icon {
+    position: absolute;
+    top: 15px;
+    right: 16px;
+    height: 20px;
+  }
+}
