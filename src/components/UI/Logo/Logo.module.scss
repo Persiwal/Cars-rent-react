@@ -1,0 +1,13 @@
+@import "../../../global_styles/mixins";
+
+.logo {
+  img {
+    width: 200px;
+    height: 50px;
+
+    @include breakpointUP(md) {
+      width: 250px;
+      height: 60px;
+    }
+  }
+}
