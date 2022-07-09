@@ -1,0 +1,45 @@
+@import "../../../global_styles/mixins.scss";
+@import "../../../global_styles/variables.scss";
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: $black;
+  opacity: 50%;
+  z-index: 20;
+}
+
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: $black;
+  opacity: 70%;
+  z-index: 19;
+}
+
+.wrapper {
+  position: fixed;
+  top: 30vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $white;
+  width: 80%;
+  max-width: 550px;
+  max-height: 80vh;
+  border-radius: 8px;
+  padding: 26px 8px 8px 8px;
+  overflow-x: auto;
+  z-index: 30;
+
+  @include breakpointUP(md) {
+    max-height: 500px;
+    padding: 26px 32px 8px 32px;
+  }
+}
