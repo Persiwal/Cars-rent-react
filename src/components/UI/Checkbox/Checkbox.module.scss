@@ -1,0 +1,15 @@
+@import "../../../global_styles/variables.scss";
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  color: $black;
+
+  input {
+    width: 24px;
+    height: 24px;
+    border-radius: 10px;
+  }
+}
