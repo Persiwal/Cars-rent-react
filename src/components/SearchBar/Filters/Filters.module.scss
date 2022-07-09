@@ -1,0 +1,53 @@
+@import "../../../global_styles/_mixins.scss";
+@import "../../../global_styles/variables.scss";
+
+.opened {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  top: 0px;
+  height: 100vh;
+  width: 100%;
+  background-color: $lightGrey;
+  padding: 0 24px;
+  z-index: 5;
+  animation: fade-in 0.25s ease-in-out;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h2 {
+      font-size: 25px;
+      font-weight: $regular;
+    }
+  }
+
+  .closed {
+    span {
+      display: block;
+      height: 4px;
+      width: 35px;
+      background-color: $grey;
+      margin-bottom: 0.3125rem;
+    }
+
+    :first-child {
+      transform: rotate(45deg) translate(7px);
+    }
+
+    :last-child {
+      transform: rotate(-45deg) translate(5px);
+    }
+  }
+}
+
+@keyframes fade-in {
+  1% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
