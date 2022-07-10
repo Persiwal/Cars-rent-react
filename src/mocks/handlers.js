@@ -1,5 +1,5 @@
 import { rest } from "msw";
-import { cars } from "./fixtures";
+import { cars } from "./fixtures.js";
 
 export const handlers = [
   rest.get("/cars", (req, res, ctx) => {
