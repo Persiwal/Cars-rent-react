@@ -17,7 +17,7 @@ const FiltersForm = ({ items }) => {
   const [minProductionYear, setMinProductionYear] = useState(1970);
   const [maxProductionYear, setMaxProductionYear] = useState(2022);
   const [isPromo, setIsPromo] = useState(isPromoCtx);
-  console.log(isPromoCtx);
+
   useEffect(() => {
     setFiltersState({
       isPromo: isPromo,
