@@ -1,14 +1,14 @@
 import styles from "./Checkbox.module.scss";
 
-const Checkbox = (props) => {
+const Checkbox = ({ label, toggleValue, checked }) => {
   return (
     <div className={styles.wrapper}>
-      <label htmlFor={props.label}>{props.label}</label>
+      <label htmlFor={label}>{label}</label>
       <input
         type="checkbox"
-        name={props.label}
-        onClick={props.toggleValue}
-        checked={props.checked}
+        name={label}
+        onClick={toggleValue}
+        checked={checked}
       />
     </div>
   );

@@ -1,18 +1,21 @@
+//hooks
 import { useEffect, useState } from "react";
 import { useFilters } from "../../hooks/useFilters";
-import useMediaQuery from "../../hooks/useMediaQuery";
+import { useMediaQuery } from "../../hooks/useMediaQuery";
 
+//styles
+import styles from "./SearchBar.module.scss";
+
+//components
 import SearchBarInput from "../UI/SearchBarInput/SearchBarInput";
 import Filters from "./Filters/Filters";
 import Checkbox from "../UI/Checkbox/Checkbox";
-import styles from "./SearchBar.module.scss";
 
-const SearchBar = (props) => {
+const SearchBar = ({ items }) => {
   const { isPromo: isPromoCtx, setFiltersState } = useFilters();
+  const [isPromo, setIsPromo] = useState(isPromoCtx);
   const isDesktop = useMediaQuery("(min-width:896px)");
   const [inputValue, setInputValue] = useState("");
-  const [isPromo, setIsPromo] = useState(isPromoCtx);
-  const [isAvailableNow, setIsAvailableNow] = useState(false);
   const [showMobileFilters, setShowMobileFilters] = useState(false);
   const [showDesktopFilters, setShowDesktopFilters] = useState(false);
 
@@ -20,9 +23,8 @@ const SearchBar = (props) => {
     setFiltersState({
       name: inputValue.trim(),
       isPromo: isPromo,
-      isAvailableNow: isAvailableNow,
     });
-  }, [inputValue, isPromo, isAvailableNow]);
+  }, [inputValue, isPromo]);
 
   const handleInputChange = (value) => {
     setInputValue(value);
@@ -30,10 +32,6 @@ const SearchBar = (props) => {
 
   const handlePromoClick = () => {
     setIsPromo((prev) => !prev);
-  };
-
-  const handleAvailableNowClick = () => {
-    setIsAvailableNow((prev) => !prev);
   };
 
   const handleMobileFiltersShow = () => {
@@ -44,7 +42,7 @@ const SearchBar = (props) => {
     setShowMobileFilters(false);
   };
 
-  const handleDekstopFiltersShow = () => {
+  const handleDesktopFiltersShow = () => {
     setShowDesktopFilters((prev) => !prev);
   };
 
@@ -63,7 +61,7 @@ const SearchBar = (props) => {
           <span></span>
           <span></span>
         </div>
-        <button onClick={handleDekstopFiltersShow}>
+        <button onClick={handleDesktopFiltersShow}>
           {!showDesktopFilters ? "Show filters" : "Hide filters"}
         </button>
         {isDesktop && (
@@ -77,7 +75,7 @@ const SearchBar = (props) => {
 
       <div className={styles.filtersSearch}>
         <Filters
-          items={props.items}
+          items={items}
           showMobileFilters={showMobileFilters}
           showDesktopFilters={showDesktopFilters}
           handleMobileFiltersClose={handleMobileFiltersClose}

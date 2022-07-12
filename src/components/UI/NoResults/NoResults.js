@@ -1,4 +1,7 @@
+//styles
 import styles from "./NoResults.module.scss";
+
+//images
 import emptyRoad from "../../../assets/images/empty-road.jpg";
 
 const NoResults = () => {

@@ -1,23 +1,29 @@
+//hooks
 import { useState } from "react";
+
+//styles
 import styles from "./CarsListItem.module.scss";
+
+//components
+import Modal from "../../UI/Modal/Modal";
 import CarsListItemModal from "./CarsListItemModal/CarsListItemModal";
 
+//icons
 import gearboxIcon from "../../../assets/icons/gearbox-icon.svg";
 import dropIcon from "../../../assets/icons/drop-icon.svg";
 import personIcon from "../../../assets/icons/person-icon.svg";
-import Modal from "../../UI/Modal/Modal";
 
 const CarsListItem = ({ basic, performance, engine, opinions, rent }) => {
-  const [isHovered, setIsHovered] = useState(false);
+  const [isImgHovered, setIsImgHovered] = useState(false);
   const [isModalOpen, setIsModalOPen] = useState(false);
   //const avgScore = console.log(opinions.length);
 
-  const handleMouseOver = () => {
-    setIsHovered(true);
+  const handleMouseOverImg = () => {
+    setIsImgHovered(true);
   };
 
-  const handleMouseOut = () => {
-    setIsHovered(false);
+  const handleMouseOutImg = () => {
+    setIsImgHovered(false);
   };
 
   const handleModalOpen = () => {
@@ -33,13 +39,13 @@ const CarsListItem = ({ basic, performance, engine, opinions, rent }) => {
       <li className={styles.carItem}>
         <div
           className={`${styles.imageContainer}  ${
-            isHovered ? styles.active : ""
+            isImgHovered ? styles.active : ""
           }`}
         >
           <img
             className={styles.img}
-            onMouseOver={handleMouseOver}
-            onMouseOut={handleMouseOut}
+            onMouseOver={handleMouseOverImg}
+            onMouseOut={handleMouseOutImg}
             onClick={handleModalOpen}
             src={basic["photo_url"]}
             alt={basic.mark + " " + basic.model}

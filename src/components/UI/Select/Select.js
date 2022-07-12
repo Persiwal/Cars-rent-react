@@ -1,5 +1,7 @@
+//hooks
 import { useState, useRef, useEffect } from "react";
 
+//styles
 import styles from "./Select.module.scss";
 
 const Select = ({ title, options, id, name, handleValue }) => {

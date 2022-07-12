@@ -1,29 +1,31 @@
-import { useState } from "react";
-import FiltersForm from "./FiltersForm/FiltersForm";
+//styles
 import styles from "./Filters.module.scss";
 
-const Filters = (props) => {
+//components
+import FiltersForm from "./FiltersForm/FiltersForm";
+
+const Filters = ({
+  showMobileFilters,
+  showDesktopFilters,
+  handleMobileFiltersClose,
+  items,
+}) => {
   return (
     <>
-      {props.showMobileFilters && (
+      {showMobileFilters && (
         <div className={styles.opened}>
           <div className={styles.header}>
             <h2>Filters</h2>
-            <div
-              className={styles.closed}
-              onClick={props.handleMobileFiltersClose}
-            >
+            <div className={styles.closed} onClick={handleMobileFiltersClose}>
               <span></span>
               <span></span>
             </div>
           </div>
-          <FiltersForm items={props.items} renderFor="mobile" />
+          <FiltersForm items={items} renderFor="mobile" />
         </div>
       )}
 
-      {props.showDesktopFilters && (
-        <FiltersForm items={props.items} renderFor="desktop" />
-      )}
+      {showDesktopFilters && <FiltersForm items={items} renderFor="desktop" />}
     </>
   );
 };

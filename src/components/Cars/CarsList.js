@@ -1,12 +1,16 @@
-import ReactPaginate from "react-paginate";
+//hooks
 import { useCars } from "../../hooks/useCars";
 
+//styles
 import styles from "./CarsList.module.scss";
+
+//components
+import ReactPaginate from "react-paginate";
 import CarsListItem from "./CarsListItem/CarsListItem";
 import NoResults from "../UI/NoResults/NoResults";
 
 const CarsList = ({ items }) => {
-  const { cars, handlePageClick, pageCount } = useCars({ items });
+  const { cars, handlePageClick, pageCount } = useCars(items);
 
   return (
     <div className={styles.container}>

@@ -1,9 +1,18 @@
-import useMediaQuery from "../../hooks/useMediaQuery";
-import { signOut } from "firebase/auth";
-import { auth } from "../../firebase-config";
-import Logo from "../UI/Logo/Logo";
+//hooks
+import { useMediaQuery } from "../../hooks/useMediaQuery";
 import { useAuthState } from "react-firebase-hooks/auth";
+
+//styles
 import styles from "./Navigation.module.scss";
+
+//components
+import Logo from "../UI/Logo/Logo";
+
+//authentication
+import { auth } from "../../firebase-config";
+import { signOut } from "firebase/auth";
+
+//routing
 import { Link } from "react-router-dom";
 
 const Navigation = () => {
@@ -31,9 +40,8 @@ const Navigation = () => {
           <Link to="./login">
             <button className={styles.login}>Login</button>
           </Link>
-
           <Link to="./register">
-            <button className={styles.register}>Register </button>
+            <button className={styles.register}>Register</button>
           </Link>
         </div>
       ) : (

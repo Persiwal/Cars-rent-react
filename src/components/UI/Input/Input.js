@@ -1,5 +1,7 @@
+//hooks
 import { useState, useEffect } from "react";
 
+//styles
 import styles from "./Input.module.scss";
 
 const Input = ({ type, placeholder, step, min, max, width, handleValue }) => {

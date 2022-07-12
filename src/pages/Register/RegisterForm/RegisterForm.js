@@ -1,11 +1,18 @@
+//hooks
 import { useState, useEffect } from "react";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../../firebase-config";
-import { Link, useNavigate } from "react-router-dom";
+
+//styles
+import styles from "./RegisterForm.module.scss";
+
+//components
 import Input from "../../../components/UI/Input/Input";
 
-import image from "../../../assets/images/register-modal.png";
-import styles from "./RegisterForm.module.scss";
+//routing
+import { Link, useNavigate } from "react-router-dom";
+
+//authentication
+import { auth } from "../../../firebase-config";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 const RegisterForm = () => {
   const navigate = useNavigate();
@@ -46,7 +53,7 @@ const RegisterForm = () => {
     e.preventDefault();
     if (isEmailValid && isPasswordValid) {
       try {
-        const user = await createUserWithEmailAndPassword(
+        await createUserWithEmailAndPassword(
           auth,
           emailInputValue,
           passwordInputValue

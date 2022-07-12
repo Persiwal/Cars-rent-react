@@ -1,6 +1,9 @@
+//styles
+import styles from "./Register.module.scss";
+
+//components
 import RegisterForm from "./RegisterForm/RegisterForm";
 import Logo from "../../components/UI/Logo/Logo";
-import styles from "./Register.module.scss";
 
 const Register = () => {
   return (

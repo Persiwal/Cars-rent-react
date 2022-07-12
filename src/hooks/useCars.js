@@ -1,7 +1,8 @@
+//hooks
 import { useEffect, useState } from "react";
 import { useFilters } from "./useFilters";
 
-export const useCars = ({ items }) => {
+export const useCars = (items) => {
   const [filteredCars, setFilteredCars] = useState([]);
   const filtersContext = useFilters();
   const [currentItems, setCurrentItems] = useState([]);
@@ -16,10 +17,6 @@ export const useCars = ({ items }) => {
 
   const filterByPromo = (item) => {
     return item.rent.promo.isPromo === true;
-  };
-
-  const filterByAvailableNow = (item) => {
-    return;
   };
 
   const filterByMark = (item, mark) => {
@@ -50,14 +47,13 @@ export const useCars = ({ items }) => {
     let cars = items;
 
     if (filtersContext.name) {
+      // filter by text input
       console.log(filtersContext.name);
       cars = cars.filter((item) => filterByName(item, filtersContext.name));
     }
     if (filtersContext.isPromo === true) {
+      // filter by promo checkbox
       cars = cars.filter((item) => filterByPromo(item));
-    }
-    if (filtersContext.isAvailable === true) {
-      cars = cars.filter((item) => filterByAvailableNow(item));
     }
     if (filtersContext.mark) {
       cars = cars.filter((item) => filterByMark(item, filtersContext.mark));

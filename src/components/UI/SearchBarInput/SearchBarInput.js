@@ -1,31 +1,40 @@
-import classes from "./SearchBarInput.module.scss";
+//styles
+import styles from "./SearchBarInput.module.scss";
+
+//icons
 import magnifierIcon from "../../../assets/icons/magnifier-icon.png";
 import xIcon from "../../../assets/icons/x-icon.svg";
 
-const SearchBarInput = (props) => {
+const SearchBarInput = ({
+  type,
+  placeholder,
+  value,
+  valueHandler,
+  renderMagnifier,
+}) => {
   const handleInputValue = (e) => {
-    props.valueHandler(e.target.value);
+    valueHandler(e.target.value);
   };
 
   const handleInputClear = (e) => {
-    props.valueHandler("");
+    valueHandler("");
   };
 
   return (
-    <div className={classes.wrapper}>
+    <div className={styles.wrapper}>
       <input
-        className={classes.input}
-        type={props.type}
-        placeholder={props.placeholder}
+        className={styles.input}
+        type={type}
+        placeholder={placeholder}
         onChange={handleInputValue}
-        value={props.value}
+        value={value}
       />
-      {props.renderMagnifier &&
-        (!props.value ? (
-          <img className={classes.icon} src={magnifierIcon} alt="" />
+      {renderMagnifier &&
+        (!value ? (
+          <img className={styles.icon} src={magnifierIcon} alt="" />
         ) : (
           <img
-            className={classes.icon}
+            className={styles.icon}
             src={xIcon}
             onClick={handleInputClear}
             alt="clear input icon"

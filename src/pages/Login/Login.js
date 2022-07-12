@@ -1,6 +1,9 @@
+//styles
+import styles from "./Login.module.scss";
+
+//components
 import LoginForm from "./LoginForm/LoginForm";
 import Logo from "../../components/UI/Logo/Logo";
-import styles from "./Login.module.scss";
 
 const Login = () => {
   return (

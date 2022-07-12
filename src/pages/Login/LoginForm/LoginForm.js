@@ -1,12 +1,19 @@
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { auth } from "../../../firebase-config";
-import { signInWithEmailAndPassword } from "firebase/auth";
+//hooks
+import { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+
+//styles
+import styles from "./LoginForm.module.scss";
+
+//components
 import Input from "../../../components/UI/Input/Input";
 
-import styles from "./LoginForm.module.scss";
-import { useEffect } from "react";
+//routing
+import { Link, useNavigate } from "react-router-dom";
+
+//authentication
+import { auth } from "../../../firebase-config";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 const LoginForm = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -68,7 +75,7 @@ const LoginForm = () => {
           width="wide"
         />
       </div>
-      <a href="" className={styles.forgotPassword}>
+      <a href="#" className={styles.forgotPassword}>
         Forgot password?
       </a>
       <button type="submit">Login</button>

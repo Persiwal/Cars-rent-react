@@ -1,11 +1,13 @@
+//hooks
 import { useState } from "react";
+
+//context
 import FiltersContext from "./FiltersContext";
 
 const CarsFiltersProvider = (props) => {
   const [filtersState, setFiltersState] = useState({
     name: "",
     isPromo: false,
-    isAvailableNow: true,
     mark: "",
     model: "",
     minPrice: 0,
@@ -17,7 +19,6 @@ const CarsFiltersProvider = (props) => {
   const filtersContextValue = {
     name: filtersState.name,
     isPromo: filtersState.isPromo,
-    isAvailableNow: filtersState.isAvailableNow,
     mark: filtersState.mark,
     model: filtersState.model,
     minPrice: filtersState.minPrice,

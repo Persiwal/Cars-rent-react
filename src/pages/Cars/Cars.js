@@ -1,14 +1,14 @@
+//hooks
 import { useEffect, useState } from "react";
 import { useAxios } from "../../hooks/useAxios";
 
+//components
 import Navigation from "../../components/Navigation/Navigation";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import CarsList from "../../components/Cars/CarsList";
 import CarsFiltersProvider from "../../store/FiltersProvider";
 
-import styles from "./Cars.module.scss";
-
-const Cars = (props) => {
+const Cars = () => {
   const [cars, setCars] = useState([]);
 
   const { response, loading, error } = useAxios({

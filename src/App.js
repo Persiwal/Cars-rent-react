@@ -1,7 +1,10 @@
-import { Route, Routes, BrowserRouter } from "react-router-dom";
+//pages
 import Cars from "./pages/Cars/Cars";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
+
+//routing
+import { Route, Routes } from "react-router-dom";
 
 const App = () => {
   return (

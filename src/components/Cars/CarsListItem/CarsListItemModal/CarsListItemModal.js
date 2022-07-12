@@ -10,13 +10,13 @@ const CarsListItemModal = ({
 }) => {
   return (
     <>
-      <div className={styles.modalHeader}>
+      <div className={styles.header}>
         <img
-          className={styles.modalImg}
+          className={styles.img}
           src={basic["photo_url"]}
           alt={basic.mark + " " + basic.model}
         />
-        <div className={styles.modalDescription}>
+        <div className={styles.description}>
           <h3>{basic.mark + " " + basic.model}</h3>
           {rent.promo.isPromo ? (
             <p className={styles.price}>
@@ -28,7 +28,7 @@ const CarsListItemModal = ({
           )}
         </div>
       </div>
-      <ul className={styles.modalInfo}>
+      <ul className={styles.info}>
         <li>
           <p>Body type</p> <p>{basic["body_type"]}</p>
         </li>
@@ -66,7 +66,7 @@ const CarsListItemModal = ({
           <p>Capacity</p> <p>{engine.capacity}</p>
         </li>
       </ul>
-      <div className={styles.modalActions}>
+      <div className={styles.actions}>
         <button className={styles.cancel} onClick={onCloseModal}>
           CANCEL
         </button>

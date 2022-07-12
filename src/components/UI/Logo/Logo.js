@@ -1,6 +1,11 @@
+//styles
 import styles from "./Logo.module.scss";
-import logo from "../../../assets/images/logo.png";
+
+//routing
 import { Link } from "react-router-dom";
+
+//images
+import logo from "../../../assets/images/logo.png";
 
 const Logo = () => {
   return (

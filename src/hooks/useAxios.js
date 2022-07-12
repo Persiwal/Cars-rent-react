@@ -1,4 +1,7 @@
+//hooks
 import { useEffect, useState } from "react";
+
+//http client
 import axios from "axios";
 
 export const useAxios = ({ url, method, body = null, headers = null }) => {
@@ -25,4 +28,3 @@ export const useAxios = ({ url, method, body = null, headers = null }) => {
 
   return { response, error, loading };
 };
-
