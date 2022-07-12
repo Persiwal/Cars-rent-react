@@ -43,6 +43,8 @@ const RegisterForm = () => {
 
   const handlePasswordInputValue = (value) => {
     setPasswordInputValue(value);
+    console.log(isEmailValid);
+    console.log(isPasswordValid);
   };
 
   const handleEmailInputValue = (value) => {
@@ -53,12 +55,12 @@ const RegisterForm = () => {
     e.preventDefault();
     if (isEmailValid && isPasswordValid) {
       try {
-        await createUserWithEmailAndPassword(
+        const user = await createUserWithEmailAndPassword(
           auth,
           emailInputValue,
           passwordInputValue
         );
-        navigate("/login");
+        navigate("../login");
         alert("Sucessfully registered! You can login now.");
       } catch (err) {
         console.log(err);
@@ -98,9 +100,7 @@ const RegisterForm = () => {
             </span>
           )}
         </div>
-        <Link to="../login">
-          <button type="submit">Register</button>
-        </Link>
+        <button type="submit">Register</button>
         <p>
           Already have account? <Link to="../login">Click here to login.</Link>
         </p>

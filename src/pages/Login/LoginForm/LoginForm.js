@@ -24,7 +24,7 @@ const LoginForm = () => {
 
   useEffect(() => {
     if (loading) return;
-    if (user) navigate("/cars");
+    // if (user) navigate("/");
   }, [user, loading]);
 
   const handleUsernameInputValue = (value) => {
